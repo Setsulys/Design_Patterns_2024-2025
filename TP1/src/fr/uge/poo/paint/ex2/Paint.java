@@ -13,18 +13,18 @@ import java.util.stream.Stream;
 import fr.uge.poo.simplegraphics.SimpleGraphics;
 
 public class Paint {
-	private record Elements(String Type,int x,int y, int x2,int y2) {
+	private record Line(int x,int y, int x2,int y2) {
 		
 	}
 
-	private static List<Paint.Elements> readFile (){
-		var list =  new ArrayList<Elements>();
+	private static List<Line> readFile (){
+		var list =  new ArrayList<Line>();
 	    Path path = Paths.get("draw1.txt");
 	    try(Stream<String> lines = Files.lines(path)) {
 	      //lines.forEach(line -> System.out.println(line));
 	      lines.forEach(e->  {
 	  		String[] token = e.split(" ");
-			list.add(new Elements(token[0],Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+			list.add(new Line(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
 			});
 	    } catch (IOException e) {
 			e.getCause();

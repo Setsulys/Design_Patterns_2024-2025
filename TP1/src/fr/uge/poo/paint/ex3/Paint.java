@@ -13,18 +13,46 @@ import java.util.stream.Stream;
 import fr.uge.poo.simplegraphics.SimpleGraphics;
 
 public class Paint {
-	private record Elements(String Type,int x,int y, int x2,int y2) {
+	private record Line(int x,int y, int x2,int y2) implements Elements{
+		
+		@Override
+		public void drawFigure(Graphics2D graphics) {
+			graphics.drawLine(x, y, x2, y2);
+		}
+	}
+	private record Rectangle(int x,int y, int x2,int y2) implements Elements{
+
+		@Override
+		public void drawFigure(Graphics2D graphics) {
+			graphics.drawRect(x, y, x2, y2);
+		}
 		
 	}
+	private record Ellipse(int x,int y, int x2,int y2) implements Elements {
 
-	private static List<Paint.Elements> readFile (){
+		@Override
+		public void drawFigure(Graphics2D graphics) {
+			graphics.drawOval(x, y, x2, y2);
+		}
+		
+	}
+	
+	private interface Elements {
+		public void drawFigure(Graphics2D graphics);
+	}
+
+	private static List<Elements> readFile (){
 		var list =  new ArrayList<Elements>();
 	    Path path = Paths.get("draw2.txt");
 	    try(Stream<String> lines = Files.lines(path)) {
 	      //lines.forEach(line -> System.out.println(line));
 	      lines.forEach(e->  {
 	  		String[] token = e.split(" ");
-			list.add(new Elements(token[0],Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+	  		switch(token[0]) {
+	  		case "line"-> list.add(new Line(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+	  		case "rectangle"-> list.add(new Rectangle(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+	  		case "ellipse"-> list.add(new Ellipse(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+	  		}
 			});
 	    } catch (IOException e) {
 			e.getCause();
@@ -35,14 +63,8 @@ public class Paint {
 	private static void drawAll(Graphics2D graphics){
 		var elements =readFile();
 		graphics.setColor(Color.BLACK);
-		elements.forEach(e-> { 
-			//System.out.println(e.Type);
-			switch(e.Type) {
-			case "line"->	graphics.drawLine(e.x, e.y, e.x2, e.y2);
-			case "rectangle"->	graphics.drawRect(e.x, e.y, e.x2, e.y2);
-			case "ellipse"-> graphics.drawOval(e.x, e.y, e.x2, e.y2);
-			default-> throw new IllegalArgumentException();
-			}
+		elements.forEach(e->{
+			e.drawFigure(graphics);
 		});
 	}
 	
