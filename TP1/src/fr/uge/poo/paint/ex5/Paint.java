@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex4;
+package fr.uge.poo.paint.ex5;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -68,8 +68,10 @@ public class Paint {
 		return (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
 	}
 	
-	private static Element getShortDistance(int x,int y) {
-		return elements.stream().min(Comparator.comparingInt(e->{			
+	private static Element nearest = null;
+	
+	private static void getShortDistance(int x,int y) {
+		nearest = elements.stream().min(Comparator.comparingInt(e->{			
 			var ex=e.getCenterPoint().x;
 			var ey =e.getCenterPoint().y;
 			return distance(ex,x,ey,y);
@@ -101,11 +103,23 @@ public class Paint {
 		});
 	}
 	
+	private static void drawColor(Graphics2D graphics) {
+		graphics.setColor(Color.ORANGE);
+		nearest.drawFigure(graphics);
+	}
+	
+	private static void drawdrawColor(SimpleGraphics area) {
+		area.waitForMouseEvents((x,y)-> {
+			getShortDistance(x, y);
+			area.render(Paint::drawColor);
+			});
+	}
+	
 	public static void main(String[] args) throws IOException {
 		SimpleGraphics area = new SimpleGraphics("area", 800, 600);
 		readFile();
         area.clear(Color.WHITE);
         area.render(Paint::drawAll);
-        area.waitForMouseEvents((x,y)-> System.out.println(Paint.getShortDistance(x, y)));
+        drawdrawColor(area);
 	}
 }
