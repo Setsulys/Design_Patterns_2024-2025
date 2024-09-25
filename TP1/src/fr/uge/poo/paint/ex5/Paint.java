@@ -13,75 +13,18 @@ import java.util.stream.Stream;
 import fr.uge.poo.simplegraphics.SimpleGraphics;
 
 public class Paint {
-	
-	private record CenterPoint(int x,int y) {}
-	
-	private record Line(int x,int y, int x2,int y2) implements Element{
-		
-		@Override
-		public void drawFigure(Graphics2D graphics) {
-			graphics.drawLine(x, y, x2, y2);
-		}
-
-		@Override
-		public CenterPoint getCenterPoint() {
-			var xCenter = (x2+x)/2;
-			var yCenter = (y2+y)/2;
-			return new CenterPoint(xCenter,yCenter);
-		}
-	}
-	private record Rectangle(int x,int y, int x2,int y2) implements Element{
-
-		@Override
-		public void drawFigure(Graphics2D graphics) {
-			graphics.drawRect(x, y, x2, y2);
-		}
-
-		@Override
-		public CenterPoint getCenterPoint() {
-			var xCenter = x2+(x/2);
-			var yCenter = y2-(y/2);
-			return new CenterPoint(xCenter,yCenter);
-		}
-	}
-	private record Ellipse(int x,int y, int x2,int y2) implements Element{
-
-		@Override
-		public void drawFigure(Graphics2D graphics) {
-			graphics.drawOval(x, y, x2, y2);
-		}
-		
-		@Override
-		public CenterPoint getCenterPoint() {
-			var xCenter = x2+(x/2);
-			var yCenter = y2-(y/2);
-			return new CenterPoint(xCenter,yCenter);
-		}
-	}
-	
-	private interface Element{
-		public void drawFigure(Graphics2D graphics);
-		public CenterPoint getCenterPoint();
-	}
-	
-	private static int distance(int x1,int x2,int y1,int y2) {
-		return (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
-	}
-	
 	private static Element nearest = null;
 	
 	private static void getShortDistance(int x,int y) {
-		nearest = elements.stream().min(Comparator.comparingInt(e->{			
-			var ex=e.getCenterPoint().x;
-			var ey =e.getCenterPoint().y;
-			return distance(ex,x,ey,y);
+		nearest = elements.stream().min(Comparator.comparingDouble(e->{			
+			return e.distance(x,y);
 			})).orElse(null);
 	}
 	
 	private static List<Element> elements = new ArrayList<>();
 
-	private static void readFile (){
-	    Path path = Paths.get("draw2.txt");
+	private static void readFile (String file){
+	    Path path = Paths.get(file);
 	    try(Stream<String> lines = Files.lines(path)) {
 	      lines.forEach(e->  {
 	  		String[] token = e.split(" ");
@@ -89,6 +32,7 @@ public class Paint {
 	  		case "line"-> elements.add(new Line(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
 	  		case "rectangle"-> elements.add(new Rectangle(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
 	  		case "ellipse"-> elements.add(new Ellipse(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+	  		default -> throw new UnsupportedOperationException();
 	  		}
 			});
 	    } catch (IOException e) {
@@ -102,24 +46,22 @@ public class Paint {
 			e.drawFigure(graphics);
 		});
 	}
-	
 	private static void drawColor(Graphics2D graphics) {
+		drawAll(graphics);
 		graphics.setColor(Color.ORANGE);
 		nearest.drawFigure(graphics);
 	}
 	
-	private static void drawdrawColor(SimpleGraphics area) {
-		area.waitForMouseEvents((x,y)-> {
-			getShortDistance(x, y);
-			area.render(Paint::drawColor);
-			});
-	}
 	
 	public static void main(String[] args) throws IOException {
 		SimpleGraphics area = new SimpleGraphics("area", 800, 600);
-		readFile();
+		readFile("draw2.txt");
         area.clear(Color.WHITE);
         area.render(Paint::drawAll);
-        drawdrawColor(area);
+		area.waitForMouseEvents((x,y)-> {
+			area.clear(Color.WHITE);
+			Paint.getShortDistance(x,y);
+			area.render(Paint::drawColor);
+		});
 	}
 }

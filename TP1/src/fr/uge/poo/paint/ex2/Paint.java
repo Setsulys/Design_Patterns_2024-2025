@@ -18,8 +18,8 @@ public class Paint {
 
 	private static List<Line> elements = new ArrayList<>();
 	
-	private static void readFile (){
-	    Path path = Paths.get("draw1.txt");
+	private static void readFile (String file){
+	    Path path = Paths.get(file);
 	    try(Stream<String> lines = Files.lines(path)) {
 	      lines.forEach(e->  {
 	  		String[] token = e.split(" ");
@@ -37,9 +37,8 @@ public class Paint {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		
 		SimpleGraphics area = new SimpleGraphics("area", 800, 600);
-		readFile();
+		readFile("draw.txt");
         area.clear(Color.WHITE);
         area.render(Paint::drawAll);
 	}

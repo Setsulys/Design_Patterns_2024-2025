@@ -35,14 +35,14 @@ public class Paint {
 		}
 	}
 	
-	private interface Element {
+	private sealed interface Element {
 		public void drawFigure(Graphics2D graphics);
 	}
 	
 	private static List<Element> elements = new ArrayList<>();
 
-	private static void readFile (){
-	    Path path = Paths.get("draw2.txt");
+	private static void readFile (String file){
+	    Path path = Paths.get(file);
 	    try(Stream<String> lines = Files.lines(path)) {
 	      lines.forEach(e->  {
 	  		String[] token = e.split(" ");
@@ -50,6 +50,7 @@ public class Paint {
 	  		case "line"-> elements.add(new Line(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
 	  		case "rectangle"-> elements.add(new Rectangle(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
 	  		case "ellipse"-> elements.add(new Ellipse(Integer.parseInt(token[1]),Integer.parseInt(token[2]),Integer.parseInt(token[3]),Integer.parseInt(token[4])));
+	  		default -> throw new IllegalStateException();
 	  		}
 			});
 	    } catch (IOException e) {
@@ -66,7 +67,7 @@ public class Paint {
 	
 	public static void main(String[] args) throws IOException {
 		SimpleGraphics area = new SimpleGraphics("area", 800, 600);
-		readFile();
+		readFile("draw2.txt");
         area.clear(Color.WHITE);
         area.render(Paint::drawAll);
 	}
