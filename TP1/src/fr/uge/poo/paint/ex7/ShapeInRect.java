@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex6;
+package fr.uge.poo.paint.ex7;
 
 sealed abstract class ShapeInRect implements Shape permits Rectangle,Ellipse  {
 	int x,y,width,height;
