@@ -2,7 +2,7 @@ package fr.uge.poo.paint.ex4;
 
 import java.awt.Graphics2D;
 
-public record Line(int x,int y, int x2,int y2) implements Element{
+public record Line(int x,int y, int x2,int y2) implements Shape{
 	
 	@Override
 	public void drawFigure(Graphics2D graphics) {

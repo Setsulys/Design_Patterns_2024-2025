@@ -3,7 +3,7 @@ package fr.uge.poo.paint.ex4;
 import java.awt.Graphics2D;
 
 
-public final class Rectangle extends Shape{
+public final class Rectangle extends ShapeInRect{
 	public Rectangle(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	

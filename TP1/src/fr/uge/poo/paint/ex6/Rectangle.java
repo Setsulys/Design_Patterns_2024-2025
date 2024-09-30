@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex5;
+package fr.uge.poo.paint.ex6;
 
 import java.awt.Graphics2D;
 

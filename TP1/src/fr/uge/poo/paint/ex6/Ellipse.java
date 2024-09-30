@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex4;
+package fr.uge.poo.paint.ex6;
 
 import java.awt.Graphics2D;
 
@@ -17,4 +17,5 @@ public final class Ellipse extends ShapeInRect{
 	public String toString() {
 		return "Ellipse[x="+x+", y="+y+", width="+width+", height="+height+"]";
 	}
+
 }

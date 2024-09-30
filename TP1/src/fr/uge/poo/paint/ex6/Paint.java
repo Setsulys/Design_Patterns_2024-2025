@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex5;
+package fr.uge.poo.paint.ex6;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
-
-import fr.uge.poo.paint.ex6.Drawing;
 import fr.uge.poo.simplegraphics.SimpleGraphics;
 
 public class Paint {
+
+	
+	
 	public static void main(String[] args) throws IOException {
 		SimpleGraphics area = new SimpleGraphics("area", 800, 600);
 		Drawing.readFile("draw2.txt");
