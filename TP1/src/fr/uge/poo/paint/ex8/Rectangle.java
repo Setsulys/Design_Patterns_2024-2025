@@ -1,7 +1,6 @@
-package fr.uge.poo.paint.ex7;
+package fr.uge.poo.paint.ex8;
 
-import fr.uge.poo.paint.ex7.Canvas.CanvaColor;
-
+import fr.uge.poo.paint.ex8.Canvas.CanvaColor;
 
 public final class Rectangle extends ShapeInRect{
 	public Rectangle(int x, int y, int width, int height) {

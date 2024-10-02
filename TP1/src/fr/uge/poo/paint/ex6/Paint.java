@@ -20,7 +20,7 @@ public class Paint {
 		//Drawing.readFile("draw-big.txt");
 		Drawing.readFile("draw-small.txt");
 		var size = Drawing.size();
-		SimpleGraphics area = new SimpleGraphics("area", size.width()>500? size.width():500, size.height()>500? size.height():500);
+		SimpleGraphics area = new SimpleGraphics("area", size.width(),size.height());
 		
         area.clear(Color.WHITE);
         area.render(Drawing::drawAll);

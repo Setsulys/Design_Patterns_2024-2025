@@ -1,6 +1,6 @@
-package fr.uge.poo.paint.ex7;
+package fr.uge.poo.paint.ex8;
 
-import fr.uge.poo.paint.ex7.Canvas.CanvaColor;
+import fr.uge.poo.paint.ex8.Canvas.CanvaColor;
 
 public record Line(int x,int y, int x2,int y2) implements Shape{
 	

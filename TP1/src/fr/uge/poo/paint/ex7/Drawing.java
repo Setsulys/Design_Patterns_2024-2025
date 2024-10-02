@@ -11,6 +11,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
+import fr.uge.poo.paint.ex7.Canvas.CanvaColor;
+
 public class Drawing {
 	private static Shape nearest = null;
 	private static List<Shape> elements = new ArrayList<>();
@@ -38,19 +40,17 @@ public class Drawing {
 			})).orElse(null);
 	}
 	
-	public static void drawAll(Graphics2D graphics){
-		graphics.setColor(Color.BLACK);
+	public static void drawAll(Canvas canva){
 		elements.forEach(e->{
-			e.drawFigure(graphics);
+			e.drawFigure(canva,CanvaColor.BLACK);
 		});
 	}
-	public static void drawColor(Graphics2D graphics) {
-		drawAll(graphics);
-		graphics.setColor(Color.ORANGE);
-		nearest.drawFigure(graphics);
+	public static void drawColor(Canvas canva) {
+		drawAll(canva);
+		nearest.drawFigure(canva,CanvaColor.ORANGE);
 	}
 	
 	public static WindowSize size() {
-		return elements.stream().map(Shape::minWindowSize).reduce(new WindowSize(0,0),WindowSize::union);
+		return elements.stream().map(Shape::minWindowSize).reduce(new WindowSize(500,500),WindowSize::union);
 	}
 }

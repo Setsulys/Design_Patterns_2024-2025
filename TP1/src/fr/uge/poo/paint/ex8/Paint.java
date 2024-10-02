@@ -1,8 +1,9 @@
-package fr.uge.poo.paint.ex7;
+package fr.uge.poo.paint.ex8;
 
 import java.io.IOException;
 
-import fr.uge.poo.paint.ex7.Canvas.CanvaColor;
+import fr.uge.poo.paint.ex8.Canvas.CanvaColor;
+
 
 public class Paint {
 

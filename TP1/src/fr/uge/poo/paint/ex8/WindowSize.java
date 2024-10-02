@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex7;
+package fr.uge.poo.paint.ex8;
 
 public record WindowSize(int width, int height) {
 	
