@@ -1,7 +1,5 @@
 package fr.uge.poo.paint.ex7;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

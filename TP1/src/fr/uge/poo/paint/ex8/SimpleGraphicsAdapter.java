@@ -20,7 +20,7 @@ public final class SimpleGraphicsAdapter implements Canvas {
 	
 	@Override
 	public void drawLine(int x, int y, int x2, int y2, CanvaColor color) {
-		graphics.render((Graphics2D g) -> {
+		graphics.render(g -> {
 			g.setColor(toSimpleGraphicsColor(color));
 			g.drawLine(x,y,x2,y2);
 		});
@@ -28,7 +28,7 @@ public final class SimpleGraphicsAdapter implements Canvas {
 	
 	@Override
 	public void drawEllipse(int x,int y,int width,int height,CanvaColor color) {
-		graphics.render((Graphics2D g)->{
+		graphics.render(g->{
 			g.setColor(toSimpleGraphicsColor(color));
 			g.drawOval(x,y,width,height);
 		});
