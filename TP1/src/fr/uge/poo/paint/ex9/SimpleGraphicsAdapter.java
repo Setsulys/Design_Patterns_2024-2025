@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex8;
+package fr.uge.poo.paint.ex9;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -25,28 +25,26 @@ public final class SimpleGraphicsAdapter implements Canvas {
 	public void drawLine(int x, int y, int x2, int y2, CanvaColor color) {
 		toRender.add(g-> g.setColor(toSimpleGraphicsColor(color)));
 		toRender.add(g->g.drawLine(x,y,x2,y2));
-		System.out.println(toRender.size());
 	}
 	
 	@Override
 	public void drawEllipse(int x,int y,int width,int height,CanvaColor color) {
 		toRender.add(g-> g.setColor(toSimpleGraphicsColor(color)));
 		toRender.add(g-> g.drawOval(x,y,width,height));
-		System.out.println(toRender.size());
 	}
 	
 	@Override
 	public void waitForMouseEvents(MouseClickCallback mouseCallback) {
 		graphics.waitForMouseEvents(mouseCallback::onClick);
-		System.out.println(toRender.size());
 	}
 	
 	@Override
 	public void render() {
 		clear(CanvaColor.WHITE);
+		//System.out.println("+"+toRender.size());
 		graphics.render(g-> toRender.forEach(e->e.accept(g)));
-		//System.out.println(toRender.size());
 		//toRender.clear();
+		//System.out.println("render" + toRender.size());
 		
 	}
 	

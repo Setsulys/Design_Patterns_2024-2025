@@ -11,7 +11,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-import fr.uge.poo.paint.ex6.Drawing;
 import fr.uge.poo.simplegraphics.SimpleGraphics;
 
 public class Paint {
