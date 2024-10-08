@@ -49,15 +49,9 @@ public final class CoolGraphicsAdapter implements Canvas{
 
 	@Override
 	public void render() {
-		clear();
+		clear(CanvaColor.WHITE);
 		consumer.accept(graphics);
 		
 	}
-
-	@Override
-	public void clear() {
-		graphics.repaint(ColorPlus.WHITE);
-	}
-	
 	
 }

@@ -28,6 +28,4 @@ public sealed interface Canvas permits CoolGraphicsAdapter,SimpleGraphicsAdapter
 	
 	public void render();
 	
-	public void clear();
-	
 }
