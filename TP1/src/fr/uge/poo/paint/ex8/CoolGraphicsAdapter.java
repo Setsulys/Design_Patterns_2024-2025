@@ -1,12 +1,14 @@
 package fr.uge.poo.paint.ex8;
 
+import java.util.function.Consumer;
+
 import com.evilcorp.coolgraphics.CoolGraphics;
 import com.evilcorp.coolgraphics.CoolGraphics.ColorPlus;
-import com.evilcorp.coolgraphics.CoolGraphics.MouseCallback;
 
 public final class CoolGraphicsAdapter implements Canvas{
 
 	private final CoolGraphics graphics;
+	private Consumer<CoolGraphics> consumer;
 	CoolGraphicsAdapter(String name,int width,int height){
 		graphics = new CoolGraphics(name,width,height);
 	}
@@ -18,13 +20,13 @@ public final class CoolGraphicsAdapter implements Canvas{
 	
 	@Override
 	public void drawLine(int x, int y, int x2, int y2,CanvaColor color) {
-		graphics.drawLine(x,y,x2,y2,toCoolGraphicsColor(color));
+		consumer  = consumer.andThen(graphics-> graphics.drawLine(x,y,x2,y2,toCoolGraphicsColor(color)));
 		
 	}
 	
 	@Override
 	public void drawEllipse(int x,int y,int width,int height,CanvaColor color) {
-		graphics.drawEllipse(x,y,width,height,toCoolGraphicsColor(color));
+		consumer = consumer.andThen(graphics-> graphics.drawEllipse(x,y,width,height,toCoolGraphicsColor(color)));
 	}
 
 	@Override
@@ -39,6 +41,18 @@ public final class CoolGraphicsAdapter implements Canvas{
 		case ORANGE -> ColorPlus.ORANGE;
 		default -> throw new UnsupportedOperationException();
 		};
+	}
+
+	@Override
+	public void render() {
+		clear();
+		consumer.accept(graphics);
+		
+	}
+
+	@Override
+	public void clear() {
+		graphics.repaint(ColorPlus.WHITE);
 	}
 	
 	

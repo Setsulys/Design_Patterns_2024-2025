@@ -27,6 +27,5 @@ public class Paint {
 			Drawing.getShortDistance(x,y);
 			Drawing.drawColor(area);
 		});
-
 	}
 }

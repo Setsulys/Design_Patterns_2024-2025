@@ -42,10 +42,12 @@ public class Drawing {
 		elements.forEach(e->{
 			e.drawFigure(canva,CanvaColor.BLACK);
 		});
+		canva.render();
 	}
 	public static void drawColor(Canvas canva) {
 		drawAll(canva);
 		nearest.drawFigure(canva,CanvaColor.ORANGE);
+		canva.render();
 	}
 	
 	public static WindowSize size() {

@@ -26,4 +26,8 @@ public sealed interface Canvas permits CoolGraphicsAdapter,SimpleGraphicsAdapter
         drawLine(x+width,y,x+width,y+height,color);
 	}
 	
+	public void render();
+	
+	public void clear();
+	
 }
