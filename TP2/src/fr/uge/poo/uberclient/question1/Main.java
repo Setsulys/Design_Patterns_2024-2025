@@ -13,6 +13,7 @@ public class Main {
 
 		var arnaud = Step.newBuilder().firstName("Arnaud").lastName("Carayol").uid(1).grade(5).email("arnaud.carayol@univ-eiffel.fr").phoneNumber("0707070707").build();
 
+		
 		System.out.println(arnaud.export(new ToHTML()));
 		System.out.println(arnaud.export(new ToHTMLSimple()));
 		System.out.println(arnaud.export(new ToHTMWithAverageOverLast7Grades()));
