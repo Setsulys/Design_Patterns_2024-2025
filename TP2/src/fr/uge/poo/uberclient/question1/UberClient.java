@@ -13,6 +13,11 @@ public class UberClient {
 	private final List<Integer> grades;
 	private final List<String> emails;
 	private final List<String> phoneNumbers;
+	
+	@FunctionalInterface
+	public interface UberClientFormatter{
+		String format(UberClientInfo v);
+	}
 
 	private UberClient(String firstName, String lastName, List<Integer> grades, List<String> emails, List<String> phoneNumbers) {
 		this.firstName = firstName;
@@ -31,6 +36,16 @@ public class UberClient {
 		this.emails = List.copyOf(emails);
 		this.phoneNumbers = List.copyOf(phoneNumbers);
 	}
+
+	private UberClientInfo info() {
+		return new UberClientInfo(firstName,lastName,grades,emails);
+	}
+	
+	public String export(UberClientFormatter formatter) {
+        return formatter.format(info());
+    };
+
+
 
 	public static class Step{
 
@@ -55,7 +70,7 @@ public class UberClient {
 		public interface PhoneNumberStep{
 			public BuildStep phoneNumber(String phoneNumbers);
 		}
-		
+
 		public interface BuildStep{
 			public UberClient build();
 		}
@@ -79,6 +94,9 @@ public class UberClient {
 			}
 
 			public GradeStep uid(long uid) {
+				if (uid<0) {
+					throw new IllegalArgumentException("UID must be positive");
+				}
 				this.uid = uid;
 				return this;
 			}
