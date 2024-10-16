@@ -13,10 +13,8 @@ public class UberClient {
 	private final List<Integer> grades;
 	private final List<String> emails;
 	private final List<String> phoneNumbers;
-	
-	@FunctionalInterface
-	public interface UberClientFormatter{
-		String format(UberClientInfo v);
+
+	public record UberClientInfo (String firstName,String lastName,List<Integer> grades,List<String> emails) {
 	}
 
 	private UberClient(String firstName, String lastName, List<Integer> grades, List<String> emails, List<String> phoneNumbers) {
@@ -123,7 +121,7 @@ public class UberClient {
 				if (firstName == null || lastName == null){
 					throw new IllegalStateException();
 				}
-				if (emails.size()==0 && phoneNumbers.size()==0) {
+				if (emails.isEmpty() && phoneNumbers.isEmpty()) {
 					throw new IllegalArgumentException("A client must have at least an email or a phoneNumber");
 				}
 				return new UberClient(firstName,lastName,grades,emails,phoneNumbers);

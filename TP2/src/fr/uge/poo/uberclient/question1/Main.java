@@ -13,11 +13,11 @@ public class Main {
 
 		var arnaud = Step.newBuilder().firstName("Arnaud").lastName("Carayol").uid(1).grade(5).email("arnaud.carayol@univ-eiffel.fr").phoneNumber("0707070707").build();
 
-		System.out.println(arnaud.export(UberClientInfo::toHTML));
-		System.out.println(arnaud.export(UberClientInfo::toHTMLSimple));
-		System.out.println(arnaud.export(UberClientInfo::toHTMWithAverageOverLast7Grades));
-		System.out.println(arnaud.export(UberClientInfo::toHtmlWithEmails));
-		System.out.println(arnaud.export(UberClientInfo::toHtmlWithEmailsAndAverageOverLast5Grades));
+		System.out.println(arnaud.export(new ToHTML()));
+		System.out.println(arnaud.export(new ToHTMLSimple()));
+		System.out.println(arnaud.export(new ToHTMWithAverageOverLast7Grades()));
+		System.out.println(arnaud.export(new ToHtmlWithEmails()));
+		System.out.println(arnaud.export(new ToHtmlWithEmailsAndAverageOverLast5Grades()));
 	}
 }
 /* 
