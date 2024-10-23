@@ -13,12 +13,16 @@ public class Main {
 
 		var arnaud = Step.newBuilder().firstName("Arnaud").lastName("Carayol").uid(1).grade(5).email("arnaud.carayol@univ-eiffel.fr").phoneNumber("0707070707").build();
 
-		
-		System.out.println(arnaud.export(new ToHTML()));
-		System.out.println(arnaud.export(new ToHTMLSimple()));
-		System.out.println(arnaud.export(new ToHTMWithAverageOverLast7Grades()));
-		System.out.println(arnaud.export(new ToHtmlWithEmails()));
-		System.out.println(arnaud.export(new ToHtmlWithEmailsAndAverageOverLast5Grades()));
+		//var average=
+		System.out.println(arnaud.exportView(new ToHTML()));
+		System.out.println(arnaud.exportView(new ToHTMLSimple()));
+		System.out.println(arnaud.exportView(new ToHTMWithAverageOverLast7Grades()));
+		System.out.println(arnaud.exportView(new ToHtmlWithEmails()));
+		System.out.println(arnaud.exportView(new ToHtmlWithEmailsAndAverageOverLast5Grades()));
+		System.out.println(arnaud.exportView(new ToHTMWithAverageOverLast7Grades(),grades -> grades.stream().limit(7)
+				.mapToLong(l -> l)
+				.average()
+				.orElseThrow(() -> new AssertionError("Client are meant to have at least one grade"))));
 	}
 }
 /* 

@@ -14,8 +14,32 @@ public class UberClient {
 	private final List<String> emails;
 	private final List<String> phoneNumbers;
 
-	public record UberClientInfo (String firstName,String lastName,List<Integer> grades,List<String> emails) {
+	public static class UberClientInfo{
+			String firstName;
+			String lastName;
+			List<String> emails;
+			double average;
+			private UberClientInfo(String firstName,String lastName,List<Integer> grades,List<String> emails, AverageGradeCalculator strategy) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.emails = emails;
+				average = strategy.averaging(grades);
+			}
+
+			public String firstName(){
+				return firstName;
+			}
+			public String lastName(){
+				return lastName;
+			}
+			public List<String> emails(){
+				return emails;
+			}
+			public double average(){
+				return average;
+			}
 	}
+
 
 	private UberClient(String firstName, String lastName, List<Integer> grades, List<String> emails, List<String> phoneNumbers) {
 		this.firstName = firstName;
@@ -34,14 +58,29 @@ public class UberClient {
 		this.emails = List.copyOf(emails);
 		this.phoneNumbers = List.copyOf(phoneNumbers);
 	}
+	private List<String> printEmails(List<String> emails){
+		return emails.stream().map(e-> {
+			var split=e.split("@");
+			var name = split[0].charAt(0)+"*";
+			var domain = split[1].charAt(0)+"*";
+			return name+"@"+domain;
+		}).toList();
+	}
 
+	private UberClientInfo info(AverageGradeCalculator strategy) {
+		return new UberClientInfo(firstName, lastName, grades, printEmails(emails), strategy);
+	}
 	private UberClientInfo info() {
-		return new UberClientInfo(firstName,lastName,grades,emails);
+		return new UberClientInfo(firstName, lastName, grades, printEmails(emails), AverageGradeCalculator.STANDARD);
 	}
 	
-	public String export(UberClientFormatter formatter) {
+	public String exportView(UberClientFormatter formatter) {
         return formatter.format(info());
-    };
+    }
+
+	public String exportView(UberClientFormatter formatter,AverageGradeCalculator strategy){
+		return formatter.format(info(strategy));
+	}
 
 
 
@@ -77,9 +116,9 @@ public class UberClient {
 			private String firstName;
 			private String lastName;
 			private long uid;
-			private List<Integer> grades = new ArrayList<>();
-			private List<String> emails= new ArrayList<>();
-			private List<String> phoneNumbers= new ArrayList<>();
+			private final List<Integer> grades = new ArrayList<>();
+			private final List<String> emails= new ArrayList<>();
+			private final List<String> phoneNumbers= new ArrayList<>();
 
 			public LastNameStep firstName(String firstName) {
 				this.firstName = Objects.requireNonNull(firstName);
