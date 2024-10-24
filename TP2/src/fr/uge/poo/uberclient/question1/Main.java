@@ -8,10 +8,10 @@ public class Main {
 		//var arnaud = new UberClient("Arnaud","Carayol",1,List.of(1,2,5,2,5,1,1,1),List.of("arnaud.carayol@univ-eiffel.fr","arnaud.carayol@u-pem.fr"),List.of("07070707070707"));
 		//var youssef = new UberClient("Youssef", "Bergeron", List.of(5), List.of("youssefbergeron@outlook.fr"),List.of());
 		//var yassine = new Builder().firstName("Yassine").lastName("Benmechich").email(List.of("yaskow@hotmail.fr")).grade(List.of(5)).phoneNumber(List.of("0606060606"));
-		var christophe = Step.newBuilder().firstName("Christophe").lastName("Haidamous").uid(56).grade(4).email("christophe.haidamous@univ-eiffel.fr").phoneNumber("0606060606").build();
+		var christophe = Step.newBuilder().firstName("Christophe").lastName("Haidamous").uid(56).grade(4).grade(5).grade(1).grade(2).email("christophe.haidamous@univ-eiffel.fr").phoneNumber("0606060606").build();
 		System.out.println(christophe);
 
-		var arnaud = Step.newBuilder().firstName("Arnaud").lastName("Carayol").uid(1).grade(5).email("arnaud.carayol@univ-eiffel.fr").phoneNumber("0707070707").build();
+		var arnaud = Step.newBuilder().firstName("Arnaud").lastName("Carayol").uid(1).grade(5).grade(5).grade(1).grade(2).email("arnaud.carayol@univ-eiffel.fr").phoneNumber("0707070707").build();
 
 		//var average=
 		System.out.println(arnaud.exportView(new ToHTML()));
