@@ -31,6 +31,18 @@ public class Newsletter {
         }
     }
 
+    private static class Builder{
+        //private final UserValidator restrictions;
+
+        public Builder nationalityRestriction() {
+            return this;
+        }
+    }
+
+    public static Builder with(){
+        return new Builder();
+    }
+
     public Newsletter(String name){
         this(name,(n,a,e)->true);
     }
