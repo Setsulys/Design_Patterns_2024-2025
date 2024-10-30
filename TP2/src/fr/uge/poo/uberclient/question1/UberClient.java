@@ -101,14 +101,14 @@ public class UberClient {
 		public interface GradeStep{
 			public EmailStep grade(int grades);
 		}
-		public interface EmailStep{
+		public interface EmailStep extends GradeStep{
 			public PhoneNumberStep email(String emails);
 		}
-		public interface PhoneNumberStep{
+		public interface PhoneNumberStep extends EmailStep{
 			public BuildStep phoneNumber(String phoneNumbers);
 		}
 
-		public interface BuildStep{
+		public interface BuildStep extends PhoneNumberStep{
 			public UberClient build();
 		}
 
