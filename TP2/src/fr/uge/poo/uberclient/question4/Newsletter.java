@@ -1,9 +1,7 @@
-package fr.uge.poo.uberclient.question2;
-
-import fr.uge.poo.uberclient.question4.NewsletterObserver;
-import fr.uge.poo.uberclient.question4.SubscribeObserver;
+package fr.uge.poo.uberclient.question4;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Newsletter {
     private final String name;
@@ -11,8 +9,8 @@ public class Newsletter {
     private final UserValidator restrictions;
     private final Mailer mailer;
 
-
-
+    private final List<NewsletterObserver> observers = new ArrayList<>();
+    private final NewsletterObserver subObservers = new SubscribeObserver();
 
     public static class Step{
 
@@ -75,10 +73,21 @@ public class Newsletter {
     public void subscribe(User user){
         Objects.requireNonNull(user);
         if(!restrictions.isValid(user)|| users.contains(user)){
+            var notSubscribe = new NotSubcribeObserver();
+            notSubscribe.onSubscribeError(this,user);
+            register(notSubscribe);
             throw new IllegalArgumentException();
         }
         users.add(user);
-
+        var subscribe = new SubscribeObserver();
+        subscribe.onSubscribeWelcome(this,user);
+        var goal = new GoalObserver();
+        goal.onSubscribeGoal(this);
+        var spy = new SpyObserver();
+        spy.onSpecificMail(this,user);
+        register(subscribe);
+        register(goal);
+        register(spy);
     }
 
     public void unSubscribe(User user){
@@ -92,8 +101,24 @@ public class Newsletter {
         mailer.sendAll(users.stream().map(User::email).toList(),subject,content);
     }
 
+    public void register(NewsletterObserver obs){
+        observers.add(Objects.requireNonNull(obs));
+    }
 
+    public void unregister(NewsletterObserver obs){
+        if (!observers.remove(Objects.requireNonNull(obs))){ throw new IllegalStateException(); }
+    }
 
+    private void notifyNewsletter(Consumer<NewsletterObserver> consumer){
+        observers.forEach(consumer);
+    }
+
+    public String name(){
+        return name;
+    }
+    public List<User> users(){
+        return new ArrayList<User>(users);
+    }
 
     public static void main(String[] args) {
 //        var potter = new Newsletter("Potter 4ever",n->  n.nationality() == User.Nationality.BRITISH && n.age() >= 18);
@@ -108,8 +133,8 @@ public class Newsletter {
         var user1= new User("Babyboy","XXXxxxXXX@univ-eiffel.fr",13,User.Nationality.FRENCH);
 
 
-        var potter = Step.newbuilder().ageRestriction(n-> n.age()==18).nationalityRestriction(n->n.nationality()==User.Nationality.BRITISH).with("Potter 4ever");
-        var java = Step.newbuilder().ageRestriction(n-> n.age()==21).nationalityRestriction(n->n.nationality()==User.Nationality.FRENCH).with("Java 4ever");
+        var potter = Step.newbuilder().ageRestriction(n-> n.age()>=18).nationalityRestriction(n->n.nationality()==User.Nationality.BRITISH).with("Potter 4ever");
+        var java = Step.newbuilder().ageRestriction(n-> n.age()>21).nationalityRestriction(n->n.nationality()==User.Nationality.FRENCH).with("Java 4ever");
         var why = Step.newbuilder().ageRestriction(n-> n.age()%2==0).emailRestriction(n->n.email().endsWith("@univ-eiffel.fr")).with("Potter 4ever");
 
 
@@ -144,8 +169,7 @@ public class Newsletter {
 }
 
 /**
- * Quel design pattern allez-vous mettre en place ? Mettez en place votre solution et modifiez le main.
+ * Quel principe solide empêche de tout simplement coder ces fonctionalités dans la classe Newsletter ?
  *
- * Je vais faire un adapter
- *
+ * Le principe solid non respecté est la Single responsibility principle
  */

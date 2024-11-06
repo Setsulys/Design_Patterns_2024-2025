@@ -1,8 +1,10 @@
 package fr.uge.poo.uberclient.question1;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.OptionalDouble;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class UberClient {
@@ -15,29 +17,38 @@ public class UberClient {
 	private final List<String> phoneNumbers;
 
 	public static class UberClientInfo{
-			String firstName;
-			String lastName;
-			List<String> emails;
-			double average;
-			private UberClientInfo(String firstName,String lastName,List<Integer> grades,List<String> emails, AverageGradeCalculator strategy) {
-				this.firstName = firstName;
-				this.lastName = lastName;
-				this.emails = emails;
-				average = strategy.averaging(grades);
-			}
+		String firstName;
+		String lastName;
+		List<String> emails;
+		OptionalDouble average;
+		private UberClientInfo(String firstName,String lastName,List<Integer> grades,List<String> emails, AverageGradeCalculator strategy) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.emails = emails;
+			average = strategy.averaging(grades);
+		}
 
-			public String firstName(){
-				return firstName;
-			}
-			public String lastName(){
-				return lastName;
-			}
-			public List<String> emails(){
-				return emails;
-			}
-			public double average(){
-				return average;
-			}
+		public String firstName(){
+			return firstName;
+		}
+		public String lastName(){
+			return lastName;
+		}
+		public List<String> emails(){
+			return printEmails(emails);
+		}
+		public OptionalDouble average(){
+			return average;
+		}
+
+		private List<String> printEmails(List<String> emails){
+			return emails.stream().map(e-> {
+				var split=e.split("@");
+				var name = split[0].charAt(0)+"*";
+				var domain = split[1].charAt(0)+"*";
+				return name+"@"+domain;
+			}).toList();
+		}
 	}
 
 
@@ -58,20 +69,13 @@ public class UberClient {
 		this.emails = List.copyOf(emails);
 		this.phoneNumbers = List.copyOf(phoneNumbers);
 	}
-	private List<String> printEmails(List<String> emails){
-		return emails.stream().map(e-> {
-			var split=e.split("@");
-			var name = split[0].charAt(0)+"*";
-			var domain = split[1].charAt(0)+"*";
-			return name+"@"+domain;
-		}).toList();
-	}
+
 
 	private UberClientInfo info(AverageGradeCalculator strategy) {
-		return new UberClientInfo(firstName, lastName, grades, printEmails(emails), strategy);
+		return new UberClientInfo(firstName, lastName, grades, emails, strategy);
 	}
 	private UberClientInfo info() {
-		return new UberClientInfo(firstName, lastName, grades, printEmails(emails), AverageGradeCalculator.STANDARD);
+		return new UberClientInfo(firstName, lastName, grades, emails, AverageGradeCalculator.STANDARD);
 	}
 	
 	public String exportView(UberClientFormatter formatter) {

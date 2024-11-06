@@ -21,8 +21,7 @@ public class Main {
 		System.out.println(arnaud.exportView(new ToHtmlWithEmailsAndAverageOverLast5Grades()));
 		System.out.println(arnaud.exportView(new ToHTMWithAverageOverLast7Grades(),grades -> grades.stream().limit(7)
 				.mapToLong(l -> l)
-				.average()
-				.orElseThrow(() -> new AssertionError("Client are meant to have at least one grade"))));
+				.average()));
 	}
 }
 /* 

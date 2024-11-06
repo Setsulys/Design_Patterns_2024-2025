@@ -1,4 +1,4 @@
-package fr.uge.poo.uberclient.question2;
+package fr.uge.poo.uberclient.question4;
 
 @FunctionalInterface
 public interface UserValidator {
