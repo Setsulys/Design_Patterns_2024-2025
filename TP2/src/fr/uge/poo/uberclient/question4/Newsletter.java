@@ -73,21 +73,13 @@ public class Newsletter {
     public void subscribe(User user){
         Objects.requireNonNull(user);
         if(!restrictions.isValid(user)|| users.contains(user)){
-            var notSubscribe = new NotSubcribeObserver();
-            notSubscribe.onSubscribeError(this,user);
-            register(notSubscribe);
+            new NotSubcribeObserver().onSubscribeError(this,user);
             throw new IllegalArgumentException();
         }
         users.add(user);
-        var subscribe = new SubscribeObserver();
-        subscribe.onSubscribeWelcome(this,user);
-        var goal = new GoalObserver();
-        goal.onSubscribeGoal(this);
-        var spy = new SpyObserver();
-        spy.onSpecificMail(this,user);
-        register(subscribe);
-        register(goal);
-        register(spy);
+        new SubscribeObserver().onSubscribeWelcome(this,user);
+        new GoalObserver().onSubscribeGoal(this);
+        new SpyObserver().onSpecificMail(this,user);
     }
 
     public void unSubscribe(User user){
@@ -99,18 +91,6 @@ public class Newsletter {
     public void sendMessage(String title,String content){
         var subject = "["+ name + "]"+title;
         mailer.sendAll(users.stream().map(User::email).toList(),subject,content);
-    }
-
-    public void register(NewsletterObserver obs){
-        observers.add(Objects.requireNonNull(obs));
-    }
-
-    public void unregister(NewsletterObserver obs){
-        if (!observers.remove(Objects.requireNonNull(obs))){ throw new IllegalStateException(); }
-    }
-
-    private void notifyNewsletter(Consumer<NewsletterObserver> consumer){
-        observers.forEach(consumer);
     }
 
     public String name(){

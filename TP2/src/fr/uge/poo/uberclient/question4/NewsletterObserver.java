@@ -5,6 +5,6 @@ public interface NewsletterObserver {
 
     void onSubscribeWelcome(Newsletter newsletter, User user);
     void onSubscribeError(Newsletter newsletter, User user);
-    public void onSubscribeGoal(Newsletter newsletter);
+    void onSubscribeGoal(Newsletter newsletter);
     void onSpecificMail(Newsletter newsletter,User user);
 }
