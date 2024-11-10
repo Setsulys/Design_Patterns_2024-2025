@@ -1,5 +1,7 @@
 package fr.uge.ex3;
 
+import java.io.BufferedWriter;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
@@ -8,29 +10,67 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.StandardOpenOption;
 import java.util.Objects;
 
-public class PathLogger implements Logger{
-    private final Path path;
-    private static final PathLogger INSTANCE = null; //new PathLogger();
+public class PathLogger implements Logger, Closeable{
+    private static PathLogger INSTANCE;
 
-    PathLogger(Path path){
-        this.path = Objects.requireNonNull(path);
+    static {
+        try {
+            INSTANCE = new PathLogger();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Level minLevel;
+
+    private BufferedWriter writer;
+    private boolean closed = false;
+
+    private PathLogger() throws IOException {
+        this.writer=Files.newBufferedWriter(Path.of("PathLoger.txt"),
+                StandardCharsets.UTF_8,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.APPEND);
     }
 
     @Override
     public void log(Level level, String message){
+        Objects.requireNonNull(level);
+        Objects.requireNonNull(message);
+        if(closed || minLevel!= null){
+            if( minLevel.ordinal()> level.ordinal()){
+                return;
+            }
+            return;
+        }
         try{
-            var buffer =Files.newBufferedWriter(path, StandardCharsets.UTF_8, StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-            buffer.write(path.toString()+":"+level+" " + message);
+            writer.write(level + " " + message);
+            writer.newLine();
+            writer.flush();
         }catch (IOException e){
             throw new UncheckedIOException(e);
         }
     }
 
-    public static PathLogger getInstance(){
+    @Override
+    public void setMinLogLevel(Level level) {
+        this.minLevel = level;
+    }
+
+    @Override
+    public Level getMinLogLevel() {
+        return null;
+    }
+
+    public static PathLogger getInstance() throws IOException {
         return INSTANCE;
     }
 
-
+    @Override
+    public void close() throws IOException {
+        closed=true;
+        writer.close();
+    }
 }
 
 /**

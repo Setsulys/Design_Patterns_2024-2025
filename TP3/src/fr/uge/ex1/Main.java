@@ -20,6 +20,7 @@ public class Main {
  *
  * Mettez le code de quackManyTimes en default dans l'interface. Expliquez pourquoi on obtient bien le comportement attendu. Est-ce que cette solution est robuste ?
  *
+ * On Obtient le comportement attendu car on utilisera le quackmanytime de l'interface et non celui des autres Duck
  * Ce n'est pas robuste car on a pas a override quackManyTimes et on aura pas le comportement voulu si on recree quackManyTimes
  *
  */
