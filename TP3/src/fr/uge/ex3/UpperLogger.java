@@ -2,12 +2,15 @@ package fr.uge.ex3;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class UpperLogger implements Logger, Closeable {
-    private final SystemLogger console = SystemLogger.getInstance();
-    private final PathLogger pathlogger = PathLogger.getInstance();
+    private final SystemLogger console;
+    private final PathLogger pathlogger;
 
-    public UpperLogger() throws IOException {
+    public UpperLogger(Path path) throws IOException {
+        console = SystemLogger.getInstance();
+        pathlogger = PathLogger.getInstance(path);
     }
 
     @Override

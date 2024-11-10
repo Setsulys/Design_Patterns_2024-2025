@@ -13,21 +13,13 @@ import java.util.Objects;
 public class PathLogger implements Logger, Closeable{
     private static PathLogger INSTANCE;
 
-    static {
-        try {
-            INSTANCE = new PathLogger();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private Level minLevel;
 
     private BufferedWriter writer;
     private boolean closed = false;
 
-    private PathLogger() throws IOException {
-        this.writer=Files.newBufferedWriter(Path.of("PathLoger.txt"),
+    private PathLogger(Path path) throws IOException {
+        this.writer=Files.newBufferedWriter(path,
                 StandardCharsets.UTF_8,
                 StandardOpenOption.CREATE,
                 StandardOpenOption.APPEND);
@@ -37,11 +29,13 @@ public class PathLogger implements Logger, Closeable{
     public void log(Level level, String message){
         Objects.requireNonNull(level);
         Objects.requireNonNull(message);
-        if(closed || minLevel!= null){
+        if(closed){
+            return;
+        }
+        if(minLevel!= null){
             if( minLevel.ordinal()> level.ordinal()){
                 return;
             }
-            return;
         }
         try{
             writer.write(level + " " + message);
@@ -59,10 +53,13 @@ public class PathLogger implements Logger, Closeable{
 
     @Override
     public Level getMinLogLevel() {
-        return null;
+        return this.minLevel;
     }
 
-    public static PathLogger getInstance() throws IOException {
+    public static PathLogger getInstance(Path path) throws IOException {
+        if(INSTANCE== null){
+            INSTANCE = new PathLogger(path);
+        }
         return INSTANCE;
     }
 
