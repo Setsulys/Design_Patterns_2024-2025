@@ -1,0 +1,4 @@
+INFO HELLO
+WARNING error
+INFO HELLO
+WARNING In class fr.uge.ex3.Application logger
