@@ -1,13 +1,15 @@
 package fr.uge.ex3;
 
+import java.util.function.Predicate;
+
 public interface Logger {
     enum Level{
         ERROR,WARNING,INFO
     }
 
-    public void log(Level level,String message);
+    void log(Level level,String message);
 
-    void setMinLogLevel(Level level);
+    void setLevelPredicate(Predicate<Level> level);
 
-    Level getMinLogLevel();
+
 }

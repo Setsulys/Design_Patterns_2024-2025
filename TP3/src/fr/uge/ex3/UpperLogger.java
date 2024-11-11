@@ -3,35 +3,26 @@ package fr.uge.ex3;
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.function.Predicate;
 
-public class UpperLogger implements Logger, Closeable {
-    private final SystemLogger console;
-    private final PathLogger pathlogger;
+public class UpperLogger implements Logger {
+    private final Logger firstLogger;
+    private final Logger systemLogger;
 
-    public UpperLogger(Path path) throws IOException {
-        console = SystemLogger.getInstance();
-        pathlogger = PathLogger.getInstance(path);
+    public UpperLogger(Logger logger) throws IOException {
+        firstLogger = logger;
+        systemLogger = SystemLogger.getInstance();
     }
 
     @Override
     public void log(Level level, String message) {
-        console.log(level,message);
-        pathlogger.log(level,message);
+        firstLogger.log(level,message);
+        systemLogger.log(level,message);
     }
 
     @Override
-    public void setMinLogLevel(Level level) {
-        console.setMinLogLevel(level);
-        pathlogger.setMinLogLevel(level);
-    }
-
-    @Override
-    public Level getMinLogLevel() {
-        return console.getMinLogLevel();
-    }
-
-    @Override
-    public void close() throws IOException {
-        pathlogger.close();
+    public void setLevelPredicate(Predicate<Level> level) {
+        firstLogger.setLevelPredicate(level);
+        systemLogger.setLevelPredicate(level);
     }
 }

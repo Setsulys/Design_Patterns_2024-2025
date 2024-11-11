@@ -1,4 +1,15 @@
-INFO HELLO
-WARNING error
-INFO HELLO
+INFO HELLO WORLD
 WARNING In class fr.uge.ex3.Application logger
+ERROR PROBLEM ENCOUNTERED HERE fr.uge.ex3.Application
+INFO HELLO FROM WARNING+
+WARNING In class fr.uge.ex3.Application logger WARNING +
+INFO HELLO WORLD
+WARNING In class fr.uge.ex3.Application logger
+ERROR PROBLEM ENCOUNTERED HERE fr.uge.ex3.Application
+INFO HELLO FROM WARNING+
+WARNING In class fr.uge.ex3.Application logger WARNING +
+INFO HELLO WORLD
+WARNING In class fr.uge.ex3.Application logger
+ERROR PROBLEM ENCOUNTERED HERE fr.uge.ex3.Application
+INFO HELLO FROM WARNING+
+WARNING In class fr.uge.ex3.Application logger WARNING +

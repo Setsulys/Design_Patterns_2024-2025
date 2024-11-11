@@ -9,16 +9,14 @@ import java.nio.file.Path;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.StandardOpenOption;
 import java.util.Objects;
+import java.util.function.Predicate;
 
 public class PathLogger implements Logger, Closeable{
-    private static PathLogger INSTANCE;
-
-    private Level minLevel;
-
-    private BufferedWriter writer;
+    private Predicate<Level> levelPredicate=t->true;
+    private final BufferedWriter writer;
     private boolean closed = false;
 
-    private PathLogger(Path path) throws IOException {
+    public PathLogger(Path path) throws IOException {
         this.writer=Files.newBufferedWriter(path,
                 StandardCharsets.UTF_8,
                 StandardOpenOption.CREATE,
@@ -32,10 +30,8 @@ public class PathLogger implements Logger, Closeable{
         if(closed){
             return;
         }
-        if(minLevel!= null){
-            if( minLevel.ordinal()> level.ordinal()){
-                return;
-            }
+        if(!levelPredicate.test(level)){
+            return;
         }
         try{
             writer.write(level + " " + message);
@@ -47,20 +43,8 @@ public class PathLogger implements Logger, Closeable{
     }
 
     @Override
-    public void setMinLogLevel(Level level) {
-        this.minLevel = level;
-    }
-
-    @Override
-    public Level getMinLogLevel() {
-        return this.minLevel;
-    }
-
-    public static PathLogger getInstance(Path path) throws IOException {
-        if(INSTANCE== null){
-            INSTANCE = new PathLogger(path);
-        }
-        return INSTANCE;
+    public void setLevelPredicate(Predicate<Level> level) {
+        this.levelPredicate = Objects.requireNonNull(level);
     }
 
     @Override
@@ -70,9 +54,3 @@ public class PathLogger implements Logger, Closeable{
     }
 }
 
-/**
- * Quel design pattern doit-on utiliser dans ce cas ? Faites les changements qui s'impose dans la classe SystemLogger.
- *
- *  On doit utiliser un singleton
- *
- */

@@ -1,36 +1,26 @@
 package fr.uge.ex3;
 
+import java.util.Objects;
+import java.util.function.Predicate;
+
 public class SystemLogger implements Logger{
-
     private static final SystemLogger INSTANCE = new SystemLogger();
-
-    private Level minLevel;
-
-    private SystemLogger(){
-
-    }
-
+    private Predicate<Level> levelpredicate= t->true;
+    private SystemLogger(){}
     public static SystemLogger getInstance(){
         return INSTANCE;
     }
 
     @Override
     public void log(Level level, String message) {
-        if(minLevel!=null){
-            if(minLevel.ordinal()> level.ordinal()){
-                return;
-            }
+        if(!levelpredicate.test(level)){
+            return;
         }
         System.err.println(level + " " + message);
     }
 
     @Override
-    public void setMinLogLevel(Level level) {
-        this.minLevel = level;
-    }
-
-    @Override
-    public Level getMinLogLevel() {
-        return null;
+    public void setLevelPredicate(Predicate<Level> level) {
+        this.levelpredicate= Objects.requireNonNull(level);
     }
 }
