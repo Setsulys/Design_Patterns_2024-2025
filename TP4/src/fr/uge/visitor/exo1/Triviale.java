@@ -1,28 +1,26 @@
 package fr.uge.visitor.exo1;
 
-import com.evilcorp.stp.*;
-import fr.uge.visitor.exo1.stpfixed.ComplexTreatment;
+import fr.uge.visitor.exo1.stpfixed.*;
 
 import java.util.Scanner;
 
 public class Triviale {
 
-
     public static void main(String[] args) {
         try(Scanner sc = new Scanner(System.in)){
+            var complexTreatment = new ComplexTreatmentProcessor();
             while(sc.hasNextLine()){
                 var line = sc.nextLine();
                 if(line.equals("quit")) {
                     return;
                 }
                 var stpP=STPParser.parse(line);
+
                 if(stpP.isEmpty()) {
                     System.out.println("Pas compris");
                     continue;
                 }
-                var stp =stpP.get();
-                ComplexTreatment complexTreatment = new ComplexTreatment();
-                
+                complexTreatment.visit(stpP.get());
             }
         }
     }

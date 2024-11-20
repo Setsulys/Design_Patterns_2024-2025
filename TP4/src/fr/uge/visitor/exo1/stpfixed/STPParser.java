@@ -1,11 +1,5 @@
 package fr.uge.visitor.exo1.stpfixed;
 
-import com.evilcorp.stp.ElapsedTimeCmd;
-import com.evilcorp.stp.HelloCmd;
-import com.evilcorp.stp.STPCommand;
-import com.evilcorp.stp.StartTimerCmd;
-import com.evilcorp.stp.StopTimerCmd;
-
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;

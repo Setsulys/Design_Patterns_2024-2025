@@ -3,7 +3,8 @@ package fr.uge.visitor.exo1.stpfixed;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
-public class ComplexTreatment implements  STPCommandVisitor{
+public class ComplexTreatmentProcessor implements  /*STPCommandVisitor*/CommandProcessor{
+
     HashMap<Integer,Long> timers = new HashMap<>();
     @Override
     public void visit(HelloCmd visitor) {
