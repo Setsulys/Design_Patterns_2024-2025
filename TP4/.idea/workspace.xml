@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a2fadb6-2b56-48d4-a74c-e0de716f6d28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/ElapsedTimeCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/ElapsedTimeCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/HelloCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/HelloCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/STPCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/STPCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/StartTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/StartTimerCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/StopTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/StopTimerCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/Triviale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/Triviale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/CommandProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/ComplexTreatmentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/ComplexTreatmentProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/ElapsedTimeCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/ElapsedTimeCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/HelloCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/HelloCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPCommandVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/STPCommandVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/STPParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/StartTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/StartTimerCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/StopTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/StopTimerCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/BinOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/BinOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/ExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/ExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/Directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/Directory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/FileSystemEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo3/FileSystemEntry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,28 +42,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "Application.ApplicationHipster.executor": "Run",
-    "Application.Triviale.executor": "Run",
-    "Application.fr.uge.visitor.exo3.Application.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/2ind2/steven.ly/Documents/Design Pattern/TP4",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ApplicationHipster.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Triviale.executor&quot;: &quot;Run&quot;,
+    &quot;Application.fr.uge.visitor.exo3.Application.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/2ind2/steven.ly/Documents/Design Pattern/TP4&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.uge.visitor.exo1.stpfixed" />
@@ -89,7 +72,7 @@
       <recent name="fr.uge.visitor.exo1.stpfixed" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.fr.uge.visitor.exo3.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo2.Application" />
       <module name="TP4" />
@@ -142,8 +125,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="fr.uge.visitor.exo3.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo3.Application" />
+      <module name="TP4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.uge.visitor.exo3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.fr.uge.visitor.exo3.Application" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.ApplicationHipster" />
         <item itemvalue="Application.Triviale" />
@@ -176,6 +173,7 @@
       <workItem from="1732354257502" duration="426000" />
       <workItem from="1732358845620" duration="7642000" />
       <workItem from="1732374771213" duration="5497000" />
+      <workItem from="1732382479389" duration="2037000" />
     </task>
     <servers />
   </component>

@@ -7,14 +7,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public final class Directory implements FileSystemEntry {
-    private final List<FileSystemEntry> content;
-    private final String name;
-    private final Path path;
-    public Directory(Path path, String name, List<FileSystemEntry> content) {
-        this.path = Objects.requireNonNull(path);
-        this.name = Objects.requireNonNull(name);
-        this.content = content;
+public record Directory(Path path,String name,List<FileSystemEntry> content) implements FileSystemEntry {
+
+    public Directory {
+        Objects.requireNonNull(path);
+        Objects.requireNonNull(name);
     }
 
     public static Directory of(Path path) throws IOException {
@@ -35,6 +32,8 @@ public final class Directory implements FileSystemEntry {
         return new Directory(path, name, content);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Directory:"+ name;
+    }
 }
