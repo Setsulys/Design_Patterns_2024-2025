@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a2fadb6-2b56-48d4-a74c-e0de716f6d28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/ElapsedTimeCmd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/HelloCmd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/STPCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/STPParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/StartTimerCmd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/StopTimerCmd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/Triviale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/Triviale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/ComplexTreatment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/ComplexTreatmentProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/ElapsedTimeCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/ElapsedTimeCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/HelloCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/HelloCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/STPCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/STPCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/StartTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/StartTimerCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/evilcorp/stp/StopTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/evilcorp/stp/StopTimerCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/Triviale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/Triviale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/CommandProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/ComplexTreatmentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/ComplexTreatmentProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/ElapsedTimeCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/ElapsedTimeCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/HelloCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/HelloCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPCommandVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/STPCommandVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/STPParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/STPParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/StartTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/StartTimerCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stpfixed/StopTimerCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo1/stphipster/StopTimerCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/BinOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/BinOp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Expr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/ExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/ExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uge/visitor/exo2/Value.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,36 +48,93 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2p6vlhu2gQNWlYfmWOBcTFomaPN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Application.executor": "Run",
+    "Application.ApplicationHipster.executor": "Run",
     "Application.Triviale.executor": "Run",
+    "Application.fr.uge.visitor.exo3.Application.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/2ind2/steven.ly/Documents/Design Pattern/TP4"
+    "last_opened_file_path": "/home/2ind2/steven.ly/Documents/Design Pattern/TP4",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.uge.visitor.exo1.stpfixed" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.uge.visitor.exo1.stpfixed" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="Triviale" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo1.Triviale" />
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo2.Application" />
       <module name="TP4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.uge.visitor.exo1.*" />
+          <option name="PATTERN" value="fr.uge.visitor.exo2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationHipster" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo1.stphipster.ApplicationHipster" />
+      <module name="TP4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.uge.visitor.exo1.stpfixed.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Triviale" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo1.stpfixed.Triviale" />
+      <module name="TP4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.uge.visitor.exo1.stpfixed.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fr.uge.visitor.exo1.stphipster.Triviale" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.uge.visitor.exo1.stphipster.Triviale" />
+      <module name="TP4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.uge.visitor.exo1.stpfixed.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,9 +144,20 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.ApplicationHipster" />
         <item itemvalue="Application.Triviale" />
+        <item itemvalue="Application.fr.uge.visitor.exo1.stphipster.Triviale" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,7 +167,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732099492998</updated>
+      <workItem from="1732116051558" duration="2418000" />
+      <workItem from="1732198437731" duration="3346000" />
+      <workItem from="1732201936098" duration="630000" />
+      <workItem from="1732202831849" duration="111000" />
+      <workItem from="1732202950348" duration="72000" />
+      <workItem from="1732203029012" duration="1951000" />
+      <workItem from="1732354257502" duration="426000" />
+      <workItem from="1732358845620" duration="7642000" />
+      <workItem from="1732374771213" duration="5497000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

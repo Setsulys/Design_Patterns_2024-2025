@@ -1,10 +1,11 @@
-package fr.uge.visitor.exo1;
+package fr.uge.visitor.exo1.stpfixed;
 
-import fr.uge.visitor.exo1.stpfixed.*;
+import fr.uge.visitor.exo1.stphipster.*;
 
 import java.util.Scanner;
 
 public class Triviale {
+
 
     public static void main(String[] args) {
         try(Scanner sc = new Scanner(System.in)){
@@ -15,12 +16,13 @@ public class Triviale {
                     return;
                 }
                 var stpP=STPParser.parse(line);
-
                 if(stpP.isEmpty()) {
                     System.out.println("Pas compris");
                     continue;
                 }
-                complexTreatment.visit(stpP.get());
+                var stp =stpP.get();
+                stp.accept(complexTreatment);
+
             }
         }
     }

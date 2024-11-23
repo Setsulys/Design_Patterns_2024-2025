@@ -1,23 +1,11 @@
-package fr.uge.visitor.exo1.stpfixed;
+package fr.uge.visitor.exo1.stphipster;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
 
-public class ComplexTreatmentProcessor implements  STPCommandVisitor{
+public class ComplexTreatmentProcessor implements  /*STPCommandVisitor*/CommandProcessor{
+
     HashMap<Integer,Long> timers = new HashMap<>();
-
-    private final List<CommandObserver> observers = new ArrayList<>();
-
-    public void register(CommandObserver observer) {
-        observers.add(Objects.requireNonNull(observer));
-    }
-    public void unregister(CommandObserver observer) {
-        if(!observers.remove(Objects.requireNonNull(observer))){ throw new IllegalStateException(); }
-    }
-
     @Override
     public void visit(HelloCmd visitor) {
         System.out.println("Hello the current date is "+ LocalDateTime.now());

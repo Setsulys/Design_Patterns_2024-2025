@@ -2,9 +2,10 @@ package fr.uge.visitor.exo2;
 
 import java.util.Iterator;
 
-/*
 public interface Expr {
-    public int eval();
+    //public int eval();
+
+    public<T> T accept(ExprVisitor<T> v);
 
     public static Expr parseExpr(Iterator<String> it) {
         if (!it.hasNext()) {
@@ -26,4 +27,3 @@ public interface Expr {
     }
 
 }
-*/

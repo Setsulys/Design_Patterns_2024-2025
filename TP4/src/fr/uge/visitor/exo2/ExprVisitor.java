@@ -1,6 +1,6 @@
 package fr.uge.visitor.exo2;
 
-//public interface ExprVisitor {
-//    public int visitValue(Value value);
-//    public int visitBinOp(BinOp binOp);
-//}
+public interface ExprVisitor<T> {
+    public T visitValue(Value value);
+    public T visitBinOp(BinOp binOp);
+}

@@ -1,4 +1,4 @@
-package fr.uge.visitor.exo1.stpfixed;
+package fr.uge.visitor.exo1.stphipster;
 
 public final class StopTimerCmd implements STPCommand {
 
@@ -12,8 +12,8 @@ public final class StopTimerCmd implements STPCommand {
         return timerId;
     }
 
-    @Override
-    public void accept(STPCommandVisitor visitor) {
-        visitor.visit(this);
-    }
+//    @Override
+//    public void accept(STPCommandVisitor visitor) {
+//        visitor.visit(this);
+//    }
 }
