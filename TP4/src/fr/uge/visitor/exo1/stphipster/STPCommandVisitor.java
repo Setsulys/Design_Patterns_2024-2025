@@ -1,4 +1,4 @@
-package fr.uge.visitor.exo1.stpfixed;
+package fr.uge.visitor.exo1.stphipster;
 
 public interface STPCommandVisitor {
     void visit(HelloCmd visitor);

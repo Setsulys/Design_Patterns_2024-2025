@@ -1,4 +1,4 @@
-package fr.uge.visitor.exo1.stpfixed;
+package fr.uge.visitor.exo1.stphipster;
 
 public interface CommandProcessor {
     public void visit(HelloCmd cmd);
@@ -11,7 +11,7 @@ public interface CommandProcessor {
             case HelloCmd Hcmd-> visit(Hcmd);
             case ElapsedTimeCmd Ecmd -> visit(Ecmd);
             case StartTimerCmd stcmd -> visit(stcmd);
-            case StopTimerCmd scmd -> visit(scmd);
+            case StopTimerCmd stcmd -> visit(stcmd);
         }
     }
 }

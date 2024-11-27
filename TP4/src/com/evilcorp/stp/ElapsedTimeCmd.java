@@ -1,5 +1,7 @@
 package com.evilcorp.stp;
 
+import fr.uge.visitor.exo1.stpfixed.ComplexTreatmentProcessor;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -14,5 +16,10 @@ public class ElapsedTimeCmd implements STPCommand {
 
     public List<Integer> getTimers() {
         return timers;
+    }
+
+    @Override
+    public void accept(ComplexTreatmentProcessor complexTreatment) {
+
     }
 }

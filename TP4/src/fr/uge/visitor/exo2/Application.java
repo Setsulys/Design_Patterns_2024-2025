@@ -2,12 +2,16 @@ package fr.uge.visitor.exo2;
 
 import java.util.regex.Pattern;
 
-//public class Application {
-//
-//    public static void main(String[] args) {
-//        var iterator = Pattern.compile(" ").splitAsStream("+ * 4 + 1 1 + 2 3").iterator();
-//        var expr = Expr.parseExpr(iterator);
+public class Application {
+
+    public static void main(String[] args) {
+        var iterator = Pattern.compile(" ").splitAsStream("+ * 4 + 1 1 + 2 3").iterator();
+        var expr = Expr.parseExpr(iterator);
 //        System.out.println(expr);
 //        System.out.println(expr.eval());
-//    }
-//}
+        var eev = new EvalExprVisitor();
+        var ts = new ToStringVisitor();
+        System.out.println(expr.accept(ts));
+        System.out.println(expr.accept(eev));
+    }
+}
