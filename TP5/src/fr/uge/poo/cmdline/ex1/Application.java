@@ -1,4 +1,4 @@
-package fr.uge.poo.cmdline.ex0;
+package fr.uge.poo.cmdline.ex1;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -42,33 +42,15 @@ public class Application {
         var settingsBuilder = ApplicationSettings.builder();
         String[] arguments={"-legacy","-no-borders","filename1","filename2"};
         var cmdParser = new CmdLineParser();
-        cmdParser.registerOption("-legacy");
-        cmdParser.registerOption("-with-borders");
-        cmdParser.registerOption("-no-borders");
+        cmdParser.addFlag("-legacy",()->settingsBuilder.legacy(true));
+        cmdParser.addFlag("-with-borders",()->settingsBuilder.bordered(true));
+        cmdParser.addFlag("-no-borders",()->settingsBuilder.legacy(false));
         List<String> result = cmdParser.process(arguments);
         List<Path> files = result.stream().map(Path::of).collect(Collectors.toList());
         // this code replaces the rest of the application
         files.forEach(p -> System.out.println(p));
-        var seen = cmdParser.getOptionsSeen();
-        if (seen.contains("-legacy")){
-            settingsBuilder.legacy(true);
-        }
-        if (seen.contains("-with-borders")){
-            settingsBuilder.bordered(true);
-        }
-        if (seen.contains("-no-borders")){
-            settingsBuilder.bordered(false);
-        }
         var settings = settingsBuilder.build();
         System.out.println();
 
     }
 }
-
-/**
- * Lisez et comprenez le code de la classe CmdLineParser et regardez son utilisation dans Application.
- * Quels problèmes posent le code proposé ?
- *
- * Le set pour connaitre les options n'a pas d'interet
- * si on ajoute une option, on doit faire un if en plus dans l'application
- */
